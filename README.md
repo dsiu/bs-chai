@@ -6,7 +6,7 @@ Bucklescript bindings to chai
 
 Install the project:
 
-`npm install bs-chai --save`
+`npm install bs-chai --save-dev`
 
 And add the dependency to your bs dependencies in `bsconfig.json`:
 
