@@ -1,0 +1,30 @@
+{
+  "name": "bs-chai",
+  "version": "0.1.0",
+  "description": "Bucklescript bindings to chai",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Risto-Stevcev/bs-chai.git"
+  },
+  "scripts": {
+    "clean": "bsb -clean-world",
+    "build": "bsb -make-world",
+    "watch": "bsb -make-world -w",
+    "test": "./node_modules/.bin/mocha lib/js/test/Test_*.js"
+  },
+  "homepage": "https://github.com/Risto-Stevcev/bs-chai",
+  "bugs": "https://github.com/Risto-Stevcev/bs-chai/issues",
+  "keywords": [
+    "BuckleScript", "reason"
+  ],
+  "author": "Risto Stevcev",
+  "license": "BSD-3-Clause",
+  "devDependencies": {
+    "bs-mocha": "^0.2.0",
+    "bs-platform": "^2.1.0",
+    "mocha": "^5.0.1"
+  },
+  "dependencies": {
+    "chai": "^4.1.2"
+  }
+}

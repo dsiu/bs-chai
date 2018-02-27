@@ -1,0 +1,19 @@
+{
+  "name": "bs-chai",
+  "version": "0.1.0",
+  "refmt": 3,
+  "namespace": true,
+  "sources": [{
+    "dir": "src",
+    "subdir": true
+  }, {
+    "dir": "test",
+    "type": "dev"
+  }],
+  "package-specs": {
+    "module": "commonjs",
+    "in-source": false
+  },
+  "suffix": ".bs.js",
+  "bs-dev-dependencies": ["bs-mocha"]
+}
