@@ -18,6 +18,12 @@ describe("Expect", () => {
   });
 
   describe("Combos.End", () => Expect.Combos.End.({
+    it("to_deep_equal", () => {
+      expect([{"a":1},{"a":2}]) |> to_deep_equal([{"a":1},{"a":2}])
+    });
+    it("to_be", () => {
+      expect([{"a":1},{"a":2}]) |> to_be([{"a":1},{"a":2}])
+    });
     it("to_be_a", () => {
       expect("foo") |> to_be_a("string")
     });

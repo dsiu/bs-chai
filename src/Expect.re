@@ -110,6 +110,9 @@ module Comparisons = {
 
 module Combos = {
   /* Some sugar to avoid the boilerplate of piping to much */
+  let to_deep_equal = (~msg=?, value, chai) =>
+    chai |> Chains.to_ |> Modifiers.deep |> Comparisons.equal(~msg=?, value);
+  let to_be = to_deep_equal;
   let to_be_a = (~msg=?, value, chai) =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.a(~msg=?, value);
   let to_be_ok = chai =>
@@ -177,6 +180,10 @@ module Combos = {
 
   module End = {
     /* Sugar that ignores the result so you don't have to */
+    let to_deep_equal = (~msg=?, value, chai) =>
+      chai |> to_deep_equal(~msg=?, value) |> ignore;
+    let to_be = (~msg=?, value, chai) =>
+      chai |> to_be(~msg=?, value) |> ignore;
     let to_be_a = (~msg=?, value, chai) =>
       chai |> to_be_a(~msg=?, value) |> ignore;
     let to_be_ok = chai =>
