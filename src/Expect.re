@@ -83,78 +83,78 @@ module Comparisons = {
   external throw : (~error:Js.Exn.t=?, ~matcher:Js.Re.t=?, ~msg:string=?, unit) => chai = "";
 
   /* Provides a better ordering for optional args to avoid the () */
-  let a = (~msg=?, value) => Internal.a(value, ~msg=?, ());
-  let include_ = (~msg=?, value) => Internal.include_(value, ~msg=?, ());
-  let equal = (~msg=?, value) => Internal.equal(value, ~msg=?, ());
-  let eql = (~msg=?, value) => Internal.eql(value, ~msg=?, ());
-  let above = (~msg=?, value) => Internal.above(value, ~msg=?, ());
-  let below = (~msg=?, value) => Internal.below(value, ~msg=?, ());
-  let least = (~msg=?, value) => Internal.least(value, ~msg=?, ());
-  let most = (~msg=?, value) => Internal.most(value, ~msg=?, ());
-  let within = (~msg=?, min, max) => Internal.within(min, max, ~msg=?, ());
-  let instanceof = (~msg=?, value) => Internal.instanceof(value, ~msg=?, ());
-  let property = (~msg=?, ~value=?, name) => Internal.property(name, ~value=?, ~msg=?, ());
-  let ownPropertyDescriptor = (~msg=?, ~descriptor=?, name) => Internal.ownPropertyDescriptor(name, ~descriptor=?, ~msg=?, ());
-  let lengthOf = (~msg=?, value) => Internal.lengthOf(value, ~msg=?, ());
-  let match_ = (~msg=?, value) => Internal.match(value, ~msg=?, ());
-  let string_ = (~msg=?, value) => Internal.string_(value, ~msg=?, ());
-  let respondTo = (~msg=?, value) => Internal.respondTo(value, ~msg=?, ());
-  let closeTo = (~msg=?, value, ~delta) => Internal.closeTo(value, ~delta, ~msg=?, ());
-  let members = (~msg=?, value) => Internal.members(value, ~msg=?, ());
-  let oneOf = (~msg=?, value) => Internal.oneOf(value, ~msg=?, ());
-  let change = (~msg=?, value) => Internal.change(value, ~msg=?, ());
-  let increase = (~msg=?, obj, prop) => Internal.increase(obj, prop, ~msg=?, ());
-  let decrease = (~msg=?, obj, prop) => Internal.decrease(obj, prop, ~msg=?, ());
-  let by = (~msg=?, value) => Internal.by(value, ~msg=?, ());
+  let a = (~msg=?, value) => Internal.a(value, ~msg?, ());
+  let include_ = (~msg=?, value) => Internal.include_(value, ~msg?, ());
+  let equal = (~msg=?, value) => Internal.equal(value, ~msg?, ());
+  let eql = (~msg=?, value) => Internal.eql(value, ~msg?, ());
+  let above = (~msg=?, value) => Internal.above(value, ~msg?, ());
+  let below = (~msg=?, value) => Internal.below(value, ~msg?, ());
+  let least = (~msg=?, value) => Internal.least(value, ~msg?, ());
+  let most = (~msg=?, value) => Internal.most(value, ~msg?, ());
+  let within = (~msg=?, min, max) => Internal.within(min, max, ~msg?, ());
+  let instanceof = (~msg=?, value) => Internal.instanceof(value, ~msg?, ());
+  let property = (~msg=?, ~value=?, name) => Internal.property(name, ~value?, ~msg?, ());
+  let ownPropertyDescriptor = (~msg=?, ~descriptor=?, name) => Internal.ownPropertyDescriptor(name, ~descriptor?, ~msg?, ());
+  let lengthOf = (~msg=?, value) => Internal.lengthOf(value, ~msg?, ());
+  let match_ = (~msg=?, value) => Internal.match(value, ~msg?, ());
+  let string_ = (~msg=?, value) => Internal.string_(value, ~msg?, ());
+  let respondTo = (~msg=?, value) => Internal.respondTo(value, ~msg?, ());
+  let closeTo = (~msg=?, value, ~delta) => Internal.closeTo(value, ~delta, ~msg?, ());
+  let members = (~msg=?, value) => Internal.members(value, ~msg?, ());
+  let oneOf = (~msg=?, value) => Internal.oneOf(value, ~msg?, ());
+  let change = (~msg=?, value) => Internal.change(value, ~msg?, ());
+  let increase = (~msg=?, obj, prop) => Internal.increase(obj, prop, ~msg?, ());
+  let decrease = (~msg=?, obj, prop) => Internal.decrease(obj, prop, ~msg?, ());
+  let by = (~msg=?, value) => Internal.by(value, ~msg?, ());
 };
 
 module Combos = {
   /* Some sugar to avoid the boilerplate of piping to much */
   let to_deep_equal = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Modifiers.deep |> Comparisons.equal(~msg=?, value);
+    chai |> Chains.to_ |> Modifiers.deep |> Comparisons.equal(~msg?, value);
   let to_be = to_deep_equal;
   let to_be_a = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.a(~msg=?, value);
+    chai |> Chains.to_ |> Chains.be |> Comparisons.a(~msg?, value);
   let to_be_ok = chai =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.ok;
   let to_include = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Comparisons.include_(~msg=?, value);
+    chai |> Chains.to_ |> Comparisons.include_(~msg?, value);
   let to_equal = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Comparisons.equal(~msg=?, value);
+    chai |> Chains.to_ |> Comparisons.equal(~msg?, value);
   let to_eql = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Comparisons.eql(~msg=?, value);
+    chai |> Chains.to_ |> Comparisons.eql(~msg?, value);
   let to_be_above = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.above(~msg=?, value);
+    chai |> Chains.to_ |> Chains.be |> Comparisons.above(~msg?, value);
   let to_be_below = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.below(~msg=?, value);
+    chai |> Chains.to_ |> Chains.be |> Comparisons.below(~msg?, value);
   let to_be_at_least = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.least(~msg=?, value);
+    chai |> Chains.to_ |> Chains.be |> Comparisons.least(~msg?, value);
   let to_be_at_most = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.most(~msg=?, value);
+    chai |> Chains.to_ |> Chains.be |> Comparisons.most(~msg?, value);
   let to_be_within = (~msg=?, min, max, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.within(~msg=?, min, max);
+    chai |> Chains.to_ |> Chains.be |> Comparisons.within(~msg?, min, max);
   let to_be_instanceof = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.instanceof(~msg=?, value);
+    chai |> Chains.to_ |> Chains.be |> Comparisons.instanceof(~msg?, value);
   let to_have_property = (~msg=?, ~value=?, name, chai) =>
-    chai |> Chains.to_ |> Chains.have |> Comparisons.property(~msg=?, ~value=?, name);
+    chai |> Chains.to_ |> Chains.have |> Comparisons.property(~msg?, ~value?, name);
   let to_have_own_property_descriptor = (~msg=?, ~descriptor=?, name, chai) =>
-    chai |> Chains.to_ |> Chains.have |> Comparisons.ownPropertyDescriptor(~msg=?, ~descriptor=?, name);
+    chai |> Chains.to_ |> Chains.have |> Comparisons.ownPropertyDescriptor(~msg?, ~descriptor?, name);
   let to_be_of_length = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Chains.of_ |> Comparisons.lengthOf(~msg=?, value);
+    chai |> Chains.to_ |> Chains.be |> Chains.of_ |> Comparisons.lengthOf(~msg?, value);
   let to_match = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Comparisons.match_(~msg=?, value);
+    chai |> Chains.to_ |> Comparisons.match_(~msg?, value);
   let to_have_string = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.have |> Comparisons.string_(~msg=?, value);
+    chai |> Chains.to_ |> Chains.have |> Comparisons.string_(~msg?, value);
   let to_throw = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Comparisons.throw(~msg=?, value);
+    chai |> Chains.to_ |> Comparisons.throw(~msg?, value);
   let to_respond_to = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Comparisons.respondTo(~msg=?, value);
+    chai |> Chains.to_ |> Comparisons.respondTo(~msg?, value);
   let to_be_close_to = (~msg=?, ~delta, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.closeTo(~msg=?, ~delta, value);
+    chai |> Chains.to_ |> Chains.be |> Comparisons.closeTo(~msg?, ~delta, value);
   let to_have_members = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.have |> Comparisons.members(~msg=?, value);
+    chai |> Chains.to_ |> Chains.have |> Comparisons.members(~msg?, value);
   let to_be_one_of = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.have |> Comparisons.oneOf(~msg=?, value);
+    chai |> Chains.to_ |> Chains.have |> Comparisons.oneOf(~msg?, value);
   let to_have_keys = (value, chai) =>
     chai |> Chains.to_ |> Chains.have |> Comparisons.keys(value);
   let to_be_true = (chai) =>
@@ -181,51 +181,51 @@ module Combos = {
   module End = {
     /* Sugar that ignores the result so you don't have to */
     let to_deep_equal = (~msg=?, value, chai) =>
-      chai |> to_deep_equal(~msg=?, value) |> ignore;
+      chai |> to_deep_equal(~msg?, value) |> ignore;
     let to_be = (~msg=?, value, chai) =>
-      chai |> to_be(~msg=?, value) |> ignore;
+      chai |> to_be(~msg?, value) |> ignore;
     let to_be_a = (~msg=?, value, chai) =>
-      chai |> to_be_a(~msg=?, value) |> ignore;
+      chai |> to_be_a(~msg?, value) |> ignore;
     let to_be_ok = chai =>
       chai |> to_be_ok |> ignore;
     let to_include = (~msg=?, value, chai) =>
-      chai |> to_include(~msg=?, value) |> ignore;
+      chai |> to_include(~msg?, value) |> ignore;
     let to_equal = (~msg=?, value, chai) =>
-      chai |> to_equal(~msg=?, value) |> ignore;
+      chai |> to_equal(~msg?, value) |> ignore;
     let to_eql = (~msg=?, value, chai) =>
-      chai |> to_eql(~msg=?, value) |> ignore;
+      chai |> to_eql(~msg?, value) |> ignore;
     let to_be_above = (~msg=?, value, chai) =>
-      chai |> to_be_above(~msg=?, value) |> ignore;
+      chai |> to_be_above(~msg?, value) |> ignore;
     let to_be_below = (~msg=?, value, chai) =>
-      chai |> to_be_below(~msg=?, value) |> ignore;
+      chai |> to_be_below(~msg?, value) |> ignore;
     let to_be_at_least = (~msg=?, value, chai) =>
-      chai |> to_be_at_least(~msg=?, value) |> ignore;
+      chai |> to_be_at_least(~msg?, value) |> ignore;
     let to_be_at_most = (~msg=?, value, chai) =>
-      chai |> to_be_at_most(~msg=?, value) |> ignore;
+      chai |> to_be_at_most(~msg?, value) |> ignore;
     let to_be_within = (~msg=?, min, max, chai) =>
-      chai |> to_be_within(~msg=?, min, max) |> ignore;
+      chai |> to_be_within(~msg?, min, max) |> ignore;
     let to_be_instanceof = (~msg=?, value, chai) =>
-      chai |> to_be_instanceof(~msg=?, value) |> ignore;
+      chai |> to_be_instanceof(~msg?, value) |> ignore;
     let to_have_property = (~msg=?, ~value=?, name, chai) =>
-      chai |> to_have_property(~msg=?, ~value=?, name) |> ignore;
+      chai |> to_have_property(~msg?, ~value?, name) |> ignore;
     let to_have_own_property_descriptor = (~msg=?, ~descriptor=?, name, chai) =>
-      chai |> to_have_own_property_descriptor(~msg=?, ~descriptor=?, name) |> ignore;
+      chai |> to_have_own_property_descriptor(~msg?, ~descriptor?, name) |> ignore;
     let to_be_of_length = (~msg=?, value, chai) =>
-      chai |> to_be_of_length(~msg=?, value) |> ignore;
+      chai |> to_be_of_length(~msg?, value) |> ignore;
     let to_match = (~msg=?, value, chai) =>
-      chai |> to_match(~msg=?, value) |> ignore;
+      chai |> to_match(~msg?, value) |> ignore;
     let to_have_string = (~msg=?, value, chai) =>
-      chai |> to_have_string(~msg=?, value) |> ignore;
+      chai |> to_have_string(~msg?, value) |> ignore;
     let to_throw = (~msg=?, value, chai) =>
-      chai |> to_throw(~msg=?, value) |> ignore;
+      chai |> to_throw(~msg?, value) |> ignore;
     let to_respond_to = (~msg=?, value, chai) =>
-      chai |> to_respond_to(~msg=?, value) |> ignore;
+      chai |> to_respond_to(~msg?, value) |> ignore;
     let to_be_close_to = (~msg=?, ~delta, value, chai) =>
-      chai |> to_be_close_to(~msg=?, ~delta, value) |> ignore;
+      chai |> to_be_close_to(~msg?, ~delta, value) |> ignore;
     let to_have_members = (~msg=?, value, chai) =>
-      chai |> to_have_members(~msg=?, value) |> ignore;
+      chai |> to_have_members(~msg?, value) |> ignore;
     let to_be_one_of = (~msg=?, value, chai) =>
-      chai |> to_be_one_of(~msg=?, value) |> ignore;
+      chai |> to_be_one_of(~msg?, value) |> ignore;
     let to_have_keys = (value, chai) =>
       chai |> to_have_keys(value) |> ignore;
     let to_be_true = (chai) =>
