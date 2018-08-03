@@ -37,29 +37,56 @@ module Modifiers = {
 module Comparisons = {
   module Internal = {
     type constructor;
-    [@bs.send.pipe: chai] external a : (string, ~msg:string=?, unit) => chai = "a";
-    [@bs.send.pipe: chai] external include_ : ('a, ~msg:string=?, unit) => chai = "include";
-    [@bs.send.pipe: chai] external equal : ('a, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external eql : (Js.t('a), ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external above : (float, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external below : (float, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external least : (float, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external most : (float, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external within : (float, float, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external instanceof : (constructor, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external property : (string, ~value:'a=?, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external ownPropertyDescriptor : (string, ~descriptor:Js.t('a)=?, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external lengthOf : (int, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external match_ : (Js.Re.t, ~msg:string=?, unit) => chai = "match";
-    [@bs.send.pipe: chai] external string_ : (string, ~msg:string=?, unit) => chai = "string";
-    [@bs.send.pipe: chai] external respondTo : (string, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external closeTo : (float, ~delta:float, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external members : (array('a), ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external oneOf : (array('a), ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external change : (array('a), ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external increase : (Js.t('a), string, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external decrease : (Js.t('a), string, ~msg:string=?, unit) => chai = "";
-    [@bs.send.pipe: chai] external by : (float, ~msg:string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external a : (string, ~msg: string=?, unit) => chai = "a";
+    [@bs.send.pipe: chai]
+    external include_ : ('a, ~msg: string=?, unit) => chai = "include";
+    [@bs.send.pipe: chai]
+    external equal : ('a, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external eql : (Js.t('a), ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external above : (float, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external below : (float, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external least : (float, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external most : (float, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external within : (float, float, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external instanceof : (constructor, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external property : (string, ~value: 'a=?, ~msg: string=?, unit) => chai =
+      "";
+    [@bs.send.pipe: chai]
+    external ownPropertyDescriptor :
+      (string, ~descriptor: Js.t('a)=?, ~msg: string=?, unit) => chai =
+      "";
+    [@bs.send.pipe: chai]
+    external lengthOf : (int, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external match_ : (Js.Re.t, ~msg: string=?, unit) => chai = "match";
+    [@bs.send.pipe: chai]
+    external string_ : (string, ~msg: string=?, unit) => chai = "string";
+    [@bs.send.pipe: chai]
+    external respondTo : (string, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external closeTo : (float, ~delta: float, ~msg: string=?, unit) => chai =
+      "";
+    [@bs.send.pipe: chai]
+    external members : (array('a), ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external oneOf : (array('a), ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external change : (array('a), ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external increase : (Js.t('a), string, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external decrease : (Js.t('a), string, ~msg: string=?, unit) => chai = "";
+    [@bs.send.pipe: chai]
+    external by : (float, ~msg: string=?, unit) => chai = "";
   };
 
   [@bs.get] external ok : chai => chai = "ok";
@@ -80,7 +107,9 @@ module Comparisons = {
   [@bs.send.pipe: chai] external keys' : array(int) => chai = "keys";
   [@bs.send.pipe: chai] external keys'' : Js.t('a) => chai = "keys";
   [@bs.send.pipe: chai]
-  external throw : (~error:Js.Exn.t=?, ~matcher:Js.Re.t=?, ~msg:string=?, unit) => chai = "";
+  external throw :
+    (~error: Js.Exn.t=?, ~matcher: Js.Re.t=?, ~msg: string=?, unit) => chai =
+    "";
 
   /* Provides a better ordering for optional args to avoid the () */
   let a = (~msg=?, value) => Internal.a(value, ~msg?, ());
@@ -93,18 +122,23 @@ module Comparisons = {
   let most = (~msg=?, value) => Internal.most(value, ~msg?, ());
   let within = (~msg=?, min, max) => Internal.within(min, max, ~msg?, ());
   let instanceof = (~msg=?, value) => Internal.instanceof(value, ~msg?, ());
-  let property = (~msg=?, ~value=?, name) => Internal.property(name, ~value?, ~msg?, ());
-  let ownPropertyDescriptor = (~msg=?, ~descriptor=?, name) => Internal.ownPropertyDescriptor(name, ~descriptor?, ~msg?, ());
+  let property = (~msg=?, ~value=?, name) =>
+    Internal.property(name, ~value?, ~msg?, ());
+  let ownPropertyDescriptor = (~msg=?, ~descriptor=?, name) =>
+    Internal.ownPropertyDescriptor(name, ~descriptor?, ~msg?, ());
   let lengthOf = (~msg=?, value) => Internal.lengthOf(value, ~msg?, ());
   let match_ = (~msg=?, value) => Internal.match(value, ~msg?, ());
   let string_ = (~msg=?, value) => Internal.string_(value, ~msg?, ());
   let respondTo = (~msg=?, value) => Internal.respondTo(value, ~msg?, ());
-  let closeTo = (~msg=?, value, ~delta) => Internal.closeTo(value, ~delta, ~msg?, ());
+  let closeTo = (~msg=?, value, ~delta) =>
+    Internal.closeTo(value, ~delta, ~msg?, ());
   let members = (~msg=?, value) => Internal.members(value, ~msg?, ());
   let oneOf = (~msg=?, value) => Internal.oneOf(value, ~msg?, ());
   let change = (~msg=?, value) => Internal.change(value, ~msg?, ());
-  let increase = (~msg=?, obj, prop) => Internal.increase(obj, prop, ~msg?, ());
-  let decrease = (~msg=?, obj, prop) => Internal.decrease(obj, prop, ~msg?, ());
+  let increase = (~msg=?, obj, prop) =>
+    Internal.increase(obj, prop, ~msg?, ());
+  let decrease = (~msg=?, obj, prop) =>
+    Internal.decrease(obj, prop, ~msg?, ());
   let by = (~msg=?, value) => Internal.by(value, ~msg?, ());
 };
 
@@ -115,8 +149,7 @@ module Combos = {
   let to_be = to_deep_equal;
   let to_be_a = (~msg=?, value, chai) =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.a(~msg?, value);
-  let to_be_ok = chai =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.ok;
+  let to_be_ok = chai => chai |> Chains.to_ |> Chains.be |> Comparisons.ok;
   let to_include = (~msg=?, value, chai) =>
     chai |> Chains.to_ |> Comparisons.include_(~msg?, value);
   let to_equal = (~msg=?, value, chai) =>
@@ -136,11 +169,21 @@ module Combos = {
   let to_be_instanceof = (~msg=?, value, chai) =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.instanceof(~msg?, value);
   let to_have_property = (~msg=?, ~value=?, name, chai) =>
-    chai |> Chains.to_ |> Chains.have |> Comparisons.property(~msg?, ~value?, name);
+    chai
+    |> Chains.to_
+    |> Chains.have
+    |> Comparisons.property(~msg?, ~value?, name);
   let to_have_own_property_descriptor = (~msg=?, ~descriptor=?, name, chai) =>
-    chai |> Chains.to_ |> Chains.have |> Comparisons.ownPropertyDescriptor(~msg?, ~descriptor?, name);
+    chai
+    |> Chains.to_
+    |> Chains.have
+    |> Comparisons.ownPropertyDescriptor(~msg?, ~descriptor?, name);
   let to_be_of_length = (~msg=?, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Chains.of_ |> Comparisons.lengthOf(~msg?, value);
+    chai
+    |> Chains.to_
+    |> Chains.be
+    |> Chains.of_
+    |> Comparisons.lengthOf(~msg?, value);
   let to_match = (~msg=?, value, chai) =>
     chai |> Chains.to_ |> Comparisons.match_(~msg?, value);
   let to_have_string = (~msg=?, value, chai) =>
@@ -150,32 +193,32 @@ module Combos = {
   let to_respond_to = (~msg=?, value, chai) =>
     chai |> Chains.to_ |> Comparisons.respondTo(~msg?, value);
   let to_be_close_to = (~msg=?, ~delta, value, chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.closeTo(~msg?, ~delta, value);
+    chai
+    |> Chains.to_
+    |> Chains.be
+    |> Comparisons.closeTo(~msg?, ~delta, value);
   let to_have_members = (~msg=?, value, chai) =>
     chai |> Chains.to_ |> Chains.have |> Comparisons.members(~msg?, value);
   let to_be_one_of = (~msg=?, value, chai) =>
     chai |> Chains.to_ |> Chains.have |> Comparisons.oneOf(~msg?, value);
   let to_have_keys = (value, chai) =>
     chai |> Chains.to_ |> Chains.have |> Comparisons.keys(value);
-  let to_be_true = (chai) =>
+  let to_be_true = chai =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.true_;
-  let to_be_false = (chai) =>
+  let to_be_false = chai =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.false_;
-  let to_be_null = (chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.null;
-  let to_be_undefined = (chai) =>
+  let to_be_null = chai => chai |> Chains.to_ |> Chains.be |> Comparisons.null;
+  let to_be_undefined = chai =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.undefined;
-  let to_be_NaN = (chai) =>
-    chai |> Chains.to_ |> Chains.be |> Comparisons.nan;
-  let to_exist = (chai) =>
-    chai |> Chains.to_ |> Comparisons.exist;
-  let to_be_empty = (chai) =>
+  let to_be_NaN = chai => chai |> Chains.to_ |> Chains.be |> Comparisons.nan;
+  let to_exist = chai => chai |> Chains.to_ |> Comparisons.exist;
+  let to_be_empty = chai =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.empty;
-  let to_be_sealed = (chai) =>
+  let to_be_sealed = chai =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.sealed;
-  let to_be_frozen = (chai) =>
+  let to_be_frozen = chai =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.frozen;
-  let to_be_finite = (chai) =>
+  let to_be_finite = chai =>
     chai |> Chains.to_ |> Chains.be |> Comparisons.finite;
 
   module End = {
@@ -186,8 +229,7 @@ module Combos = {
       chai |> to_be(~msg?, value) |> ignore;
     let to_be_a = (~msg=?, value, chai) =>
       chai |> to_be_a(~msg?, value) |> ignore;
-    let to_be_ok = chai =>
-      chai |> to_be_ok |> ignore;
+    let to_be_ok = chai => chai |> to_be_ok |> ignore;
     let to_include = (~msg=?, value, chai) =>
       chai |> to_include(~msg?, value) |> ignore;
     let to_equal = (~msg=?, value, chai) =>
@@ -209,7 +251,9 @@ module Combos = {
     let to_have_property = (~msg=?, ~value=?, name, chai) =>
       chai |> to_have_property(~msg?, ~value?, name) |> ignore;
     let to_have_own_property_descriptor = (~msg=?, ~descriptor=?, name, chai) =>
-      chai |> to_have_own_property_descriptor(~msg?, ~descriptor?, name) |> ignore;
+      chai
+      |> to_have_own_property_descriptor(~msg?, ~descriptor?, name)
+      |> ignore;
     let to_be_of_length = (~msg=?, value, chai) =>
       chai |> to_be_of_length(~msg?, value) |> ignore;
     let to_match = (~msg=?, value, chai) =>
@@ -228,25 +272,15 @@ module Combos = {
       chai |> to_be_one_of(~msg?, value) |> ignore;
     let to_have_keys = (value, chai) =>
       chai |> to_have_keys(value) |> ignore;
-    let to_be_true = (chai) =>
-      chai |> to_be_true |> ignore;
-    let to_be_false = (chai) =>
-      chai |> to_be_false |> ignore;
-    let to_be_null = (chai) =>
-      chai |> to_be_null |> ignore;
-    let to_be_undefined = (chai) =>
-      chai |> to_be_undefined |> ignore;
-    let to_be_NaN = (chai) =>
-      chai |> to_be_NaN |> ignore;
-    let to_exist = (chai) =>
-      chai |> to_exist |> ignore;
-    let to_be_empty = (chai) =>
-      chai |> to_be_empty |> ignore;
-    let to_be_sealed = (chai) =>
-      chai |> to_be_sealed |> ignore;
-    let to_be_frozen = (chai) =>
-      chai |> to_be_frozen |> ignore;
-    let to_be_finite = (chai) =>
-      chai |> to_be_finite |> ignore;
+    let to_be_true = chai => chai |> to_be_true |> ignore;
+    let to_be_false = chai => chai |> to_be_false |> ignore;
+    let to_be_null = chai => chai |> to_be_null |> ignore;
+    let to_be_undefined = chai => chai |> to_be_undefined |> ignore;
+    let to_be_NaN = chai => chai |> to_be_NaN |> ignore;
+    let to_exist = chai => chai |> to_exist |> ignore;
+    let to_be_empty = chai => chai |> to_be_empty |> ignore;
+    let to_be_sealed = chai => chai |> to_be_sealed |> ignore;
+    let to_be_frozen = chai => chai |> to_be_frozen |> ignore;
+    let to_be_finite = chai => chai |> to_be_finite |> ignore;
   };
 };
