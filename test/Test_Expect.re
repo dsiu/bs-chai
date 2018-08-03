@@ -91,10 +91,10 @@ describe("Expect", () => {
       expect({"a":1,"b":2,"c":3}) |> to_have_keys([|"a","b","c"|])
     });
     it("to_be_true", () => {
-      expect(Js.true_) |> to_be_true;
+      expect(true) |> to_be_true;
     });
     it("to_be_false", () => {
-      expect(Js.false_) |> to_be_false;
+      expect(false) |> to_be_false;
     });
     it("to_be_null", () => {
       expect(Js.null) |> to_be_null;
