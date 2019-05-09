@@ -127,7 +127,7 @@ module Comparisons = {
   let ownPropertyDescriptor = (~msg=?, ~descriptor=?, name) =>
     Internal.ownPropertyDescriptor(name, ~descriptor?, ~msg?, ());
   let lengthOf = (~msg=?, value) => Internal.lengthOf(value, ~msg?, ());
-  let match_ = (~msg=?, value) => Internal.match(value, ~msg?, ());
+  let match_ = (~msg=?, value) => Internal.match_(value, ~msg?, ());
   let string_ = (~msg=?, value) => Internal.string_(value, ~msg?, ());
   let respondTo = (~msg=?, value) => Internal.respondTo(value, ~msg?, ());
   let closeTo = (~msg=?, value, ~delta) =>

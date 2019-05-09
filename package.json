@@ -21,11 +21,11 @@
   "author": "Risto Stevcev",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "bs-mocha": "^0.4.0",
-    "bs-platform": "^4.0.0"
+    "bs-mocha": "^0.5.0",
+    "bs-platform": "^5.0.0"
   },
   "dependencies": {
     "chai": "^4.1.2",
-    "mocha": "^5.0.1"
+    "mocha": "^6.0.0"
   }
 }
