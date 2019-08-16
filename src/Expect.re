@@ -23,7 +23,7 @@ module Chains = {
 };
 
 module Modifiers = {
-  [@bs.get] external not : chai => chai = "";
+  [@bs.get] external not : chai => chai = "not";
   [@bs.get] external deep : chai => chai = "";
   [@bs.get] external nested : chai => chai = "";
   [@bs.get] external own : chai => chai = "";
