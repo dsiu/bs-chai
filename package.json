@@ -7,9 +7,9 @@
     "url": "git://github.com/Risto-Stevcev/bs-chai.git"
   },
   "scripts": {
-    "clean": "bsb -clean-world",
-    "build": "bsb -make-world",
-    "watch": "bsb -make-world -w",
+    "clean": "rescript clean -with-deps",
+    "build": "rescript build",
+    "watch": "rescript build -w",
     "test": "./node_modules/.bin/mocha lib/js/test/Test_*.js"
   },
   "homepage": "https://github.com/Risto-Stevcev/bs-chai",
@@ -22,7 +22,7 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "bs-mocha": "^1.0.0",
-    "bs-platform": "^5.0.0"
+    "rescript": "^10.0.0"
   },
   "dependencies": {
     "chai": "^4.1.2",
