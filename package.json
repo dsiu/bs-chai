@@ -21,8 +21,8 @@
   "author": "Risto Stevcev",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "bs-mocha": "^1.0.0",
-    "rescript": "^10.0.0"
+    "rescript-mocha": "github:dsiu/rescript-mocha#rescript-v11",
+    "rescript": "next"
   },
   "dependencies": {
     "chai": "^4.1.2",
