@@ -10,7 +10,7 @@
     "clean": "rescript clean -with-deps",
     "build": "rescript build",
     "watch": "rescript build -w",
-    "test": "./node_modules/.bin/mocha lib/js/test/Test_*.js"
+    "test": "./node_modules/.bin/mocha lib/es6/test/Test_*.mjs"
   },
   "homepage": "https://github.com/Risto-Stevcev/bs-chai",
   "bugs": "https://github.com/Risto-Stevcev/bs-chai/issues",
@@ -21,7 +21,7 @@
   "author": "Risto Stevcev",
   "license": "BSD-3-Clause",
   "devDependencies": {
-    "rescript": "^12.0.0-alpha.10",
+    "rescript": "^12.0.0-alpha.11",
     "rescript-mocha": "github:dsiu/rescript-mocha#rescript-v12"
   },
   "dependencies": {
