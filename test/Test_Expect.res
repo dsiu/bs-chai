@@ -40,7 +40,7 @@ describe("Expect", () => {
     it("to_be_of_length", () => expect([1, 2, 3, 4]) |> to_be_of_length(4))
     it("to_match", () => expect("foobarfoofoobaz") |> to_match(Js.Re.fromString("^(foo|bar)+baz$")))
     it("to_have_string", () => expect("foobarfoofoobaz") |> to_have_string("foobar"))
-    it("to_throw", () => expect(() => Js.Exn.raiseError("blah")) |> to_throw())
+    it("to_throw", () => expect(() => JsError.throwWithMessage("blah")) |> to_throw())
     it("to_respond_to", () => expect({"blah": () => ()}) |> to_respond_to("blah"))
     it("to_be_close_to", () => expect(1.23456) |> to_be_close_to(1.23, ~delta=0.01))
     it("to_have_members", () => expect([1, 2, 3]) |> to_have_members([2, 3, 1]))

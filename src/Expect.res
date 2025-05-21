@@ -109,7 +109,7 @@ module Comparisons = {
   @send external keys': (chai, array<int>) => chai = "keys"
   @send external keys'': (chai, Js.t<'a>) => chai = "keys"
   @send
-  external throw: (chai, ~error: Js.Exn.t=?, ~matcher: Js.Re.t=?, ~msg: string=?, unit) => chai =
+  external throw: (chai, ~error: JsExn.t=?, ~matcher: Js.Re.t=?, ~msg: string=?, unit) => chai =
     "throw"
 
   /* Provides a better ordering for optional args to avoid the () */
