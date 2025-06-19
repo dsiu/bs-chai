@@ -201,45 +201,45 @@ module Combos = {
 
   module End = {
     /* Sugar that ignores the result so you don't have to */
-    let to_deep_equal = (~msg=?, value, chai) => chai |> to_deep_equal(~msg?, value) |> ignore
-    let to_be = (~msg=?, value, chai) => chai |> to_be(~msg?, value) |> ignore
-    let to_be_a = (~msg=?, value, chai) => chai |> to_be_a(~msg?, value) |> ignore
-    let to_be_ok = chai => chai |> to_be_ok |> ignore
-    let to_include = (~msg=?, value, chai) => chai |> to_include(~msg?, value) |> ignore
-    let to_equal = (~msg=?, value, chai) => chai |> to_equal(~msg?, value) |> ignore
-    let to_eql = (~msg=?, value, chai) => chai |> to_eql(~msg?, value) |> ignore
-    let to_be_above = (~msg=?, value, chai) => chai |> to_be_above(~msg?, value) |> ignore
-    let to_be_below = (~msg=?, value, chai) => chai |> to_be_below(~msg?, value) |> ignore
-    let to_be_at_least = (~msg=?, value, chai) => chai |> to_be_at_least(~msg?, value) |> ignore
-    let to_be_at_most = (~msg=?, value, chai) => chai |> to_be_at_most(~msg?, value) |> ignore
-    let to_be_within = (~msg=?, min, max, chai) => chai |> to_be_within(~msg?, min, max) |> ignore
-    let to_be_instanceof = (~msg=?, value, chai) => chai |> to_be_instanceof(~msg?, value) |> ignore
+    let to_deep_equal = (~msg=?, value, chai) => chai -> to_deep_equal(~msg?, value, _) -> ignore
+    let to_be = (~msg=?, value, chai) => chai -> to_be(~msg?, value, _) -> ignore
+    let to_be_a = (~msg=?, value, chai) => chai -> to_be_a(~msg?, value, _) -> ignore
+    let to_be_ok = chai => chai -> to_be_ok -> ignore
+    let to_include = (~msg=?, value, chai) => chai -> to_include(~msg?, value, _) -> ignore
+    let to_equal = (~msg=?, value, chai) => chai -> to_equal(~msg?, value, _) -> ignore
+    let to_eql = (~msg=?, value, chai) => chai -> to_eql(~msg?, value, _) -> ignore
+    let to_be_above = (~msg=?, value, chai) => chai -> to_be_above(~msg?, value, _) -> ignore
+    let to_be_below = (~msg=?, value, chai) => chai -> to_be_below(~msg?, value, _) -> ignore
+    let to_be_at_least = (~msg=?, value, chai) => chai -> to_be_at_least(~msg?, value, _) -> ignore
+    let to_be_at_most = (~msg=?, value, chai) => chai -> to_be_at_most(~msg?, value, _) -> ignore
+    let to_be_within = (~msg=?, min, max, chai) => chai -> to_be_within(~msg?, min, max, _) -> ignore
+    let to_be_instanceof = (~msg=?, value, chai) => chai -> to_be_instanceof(~msg?, value, _) -> ignore
 
     let to_have_property = (~msg=?, ~value=?, name, chai) =>
-      chai |> to_have_property(~msg?, ~value?, name) |> ignore
+      chai -> to_have_property(~msg?, ~value?, name, _) -> ignore
 
     let to_have_own_property_descriptor = (~msg=?, ~descriptor=?, name, chai) =>
-      chai |> to_have_own_property_descriptor(~msg?, ~descriptor?, name) |> ignore
+      chai -> to_have_own_property_descriptor(~msg?, ~descriptor?, name, _) -> ignore
 
-    let to_be_of_length = (~msg=?, value, chai) => chai |> to_be_of_length(~msg?, value) |> ignore
-    let to_match = (~msg=?, value, chai) => chai |> to_match(~msg?, value) |> ignore
-    let to_have_string = (~msg=?, value, chai) => chai |> to_have_string(~msg?, value) |> ignore
-    let to_throw = (~msg=?, value, chai) => chai |> to_throw(~msg?, value) |> ignore
-    let to_respond_to = (~msg=?, value, chai) => chai |> to_respond_to(~msg?, value) |> ignore
+    let to_be_of_length = (~msg=?, value, chai) => chai -> to_be_of_length(~msg?, value, _) -> ignore
+    let to_match = (~msg=?, value, chai) => chai -> to_match(~msg?, value, _) -> ignore
+    let to_have_string = (~msg=?, value, chai) => chai -> to_have_string(~msg?, value, _) -> ignore
+    let to_throw = (~msg=?, value, chai) => chai -> to_throw(~msg?, value, _) -> ignore
+    let to_respond_to = (~msg=?, value, chai) => chai -> to_respond_to(~msg?, value, _) -> ignore
     let to_be_close_to = (~msg=?, ~delta, value, chai) =>
-      chai |> to_be_close_to(~msg?, ~delta, value) |> ignore
-    let to_have_members = (~msg=?, value, chai) => chai |> to_have_members(~msg?, value) |> ignore
-    let to_be_one_of = (~msg=?, value, chai) => chai |> to_be_one_of(~msg?, value) |> ignore
-    let to_have_keys = (value, chai) => chai |> to_have_keys(value) |> ignore
-    let to_be_true = chai => chai |> to_be_true |> ignore
-    let to_be_false = chai => chai |> to_be_false |> ignore
-    let to_be_null = chai => chai |> to_be_null |> ignore
-    let to_be_undefined = chai => chai |> to_be_undefined |> ignore
-    let to_be_NaN = chai => chai |> to_be_NaN |> ignore
-    let to_exist = chai => chai |> to_exist |> ignore
-    let to_be_empty = chai => chai |> to_be_empty |> ignore
-    let to_be_sealed = chai => chai |> to_be_sealed |> ignore
-    let to_be_frozen = chai => chai |> to_be_frozen |> ignore
-    let to_be_finite = chai => chai |> to_be_finite |> ignore
+      chai -> to_be_close_to(~msg?, ~delta, value, _) -> ignore
+    let to_have_members = (~msg=?, value, chai) => chai -> to_have_members(~msg?, value, _) -> ignore
+    let to_be_one_of = (~msg=?, value, chai) => chai -> to_be_one_of(~msg?, value, _) -> ignore
+    let to_have_keys = (value, chai) => chai -> to_have_keys(value, _) -> ignore
+    let to_be_true = chai => chai -> to_be_true -> ignore
+    let to_be_false = chai => chai -> to_be_false -> ignore
+    let to_be_null = chai => chai -> to_be_null -> ignore
+    let to_be_undefined = chai => chai -> to_be_undefined -> ignore
+    let to_be_NaN = chai => chai -> to_be_NaN -> ignore
+    let to_exist = chai => chai -> to_exist -> ignore
+    let to_be_empty = chai => chai -> to_be_empty -> ignore
+    let to_be_sealed = chai => chai -> to_be_sealed -> ignore
+    let to_be_frozen = chai => chai -> to_be_frozen -> ignore
+    let to_be_finite = chai => chai -> to_be_finite -> ignore
   }
 }
