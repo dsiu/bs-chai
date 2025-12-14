@@ -1,7 +1,5 @@
 {
   "name": "bs-chai",
-  "version": "1.0.1",
-  "refmt": 3,
   "namespace": true,
   "sources": [{
     "dir": "src",

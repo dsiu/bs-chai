@@ -1,5 +1,10 @@
 open RescriptMocha.Mocha
 open Expect.Expect
+
+// prevent shadowing from Expect.Comparions
+let stdlib_null = null
+let stdlib_undefined = undefined
+
 open Expect.Comparisons
 
 @val external _Array: Expect.Comparisons.Internal.constructor = "Array"
@@ -38,7 +43,7 @@ describe("Expect", () => {
       expect({"a": 1}) -> to_have_own_property_descriptor("a", _)
     )
     it("to_be_of_length", () => expect([1, 2, 3, 4]) -> to_be_of_length(4, _))
-    it("to_match", () => expect("foobarfoofoobaz") -> to_match(Js.Re.fromString("^(foo|bar)+baz$"), _))
+    it("to_match", () => expect("foobarfoofoobaz") -> to_match(RegExp.fromString("^(foo|bar)+baz$"), _))
     it("to_have_string", () => expect("foobarfoofoobaz") -> to_have_string("foobar", _))
     it("to_throw", () => expect(() => JsError.throwWithMessage("blah")) -> to_throw((), _))
     it("to_respond_to", () => expect({"blah": () => ()}) -> to_respond_to("blah", _))
@@ -48,8 +53,8 @@ describe("Expect", () => {
     it("to_have_keys", () => expect({"a": 1, "b": 2, "c": 3}) -> to_have_keys(["a", "b", "c"], _))
     it("to_be_true", () => expect(true) -> to_be_true)
     it("to_be_false", () => expect(false) -> to_be_false)
-    it("to_be_null", () => expect(Js.null) -> to_be_null)
-    it("to_be_undefined", () => expect(undefined) -> to_be_undefined)
+    it("to_be_null", () => expect(stdlib_null) -> to_be_null)
+    it("to_be_undefined", () => expect(stdlib_undefined) -> to_be_undefined)
     it("to_be_undefined", () => expect(nan) -> to_be_NaN)
     it("to_exist", () => expect(list{}) -> to_exist)
     it("to_be_empty", () => expect([]) -> to_be_empty)

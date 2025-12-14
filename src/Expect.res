@@ -44,7 +44,7 @@ module Comparisons = {
     @send
     external equal: (chai, 'a, ~msg: string=?, unit) => chai = "equal"
     @send
-    external eql: (chai, Js.t<'a>, ~msg: string=?, unit) => chai = "eql"
+    external eql: (chai, {..}, ~msg: string=?, unit) => chai = "eql"
     @send
     external above: (chai, float, ~msg: string=?, unit) => chai = "above"
     @send
@@ -63,7 +63,7 @@ module Comparisons = {
     external ownPropertyDescriptor: (
       chai,
       string,
-      ~descriptor: Js.t<'a>=?,
+      ~descriptor: {..} =?,
       ~msg: string=?,
       unit,
     ) => chai = "ownPropertyDescriptor"
@@ -84,9 +84,9 @@ module Comparisons = {
     @send
     external change: (chai, array<'a>, ~msg: string=?, unit) => chai = "change"
     @send
-    external increase: (chai, Js.t<'a>, string, ~msg: string=?, unit) => chai = "increase"
+    external increase: (chai, {..}, string, ~msg: string=?, unit) => chai = "increase"
     @send
-    external decrease: (chai, Js.t<'a>, string, ~msg: string=?, unit) => chai = "decrease"
+    external decrease: (chai, {..}, string, ~msg: string=?, unit) => chai = "decrease"
     @send
     external by: (chai, float, ~msg: string=?, unit) => chai = "by"
   }
@@ -107,7 +107,7 @@ module Comparisons = {
 
   @send external keys: (chai, array<string>) => chai = "keys"
   @send external keys': (chai, array<int>) => chai = "keys"
-  @send external keys'': (chai, Js.t<'a>) => chai = "keys"
+  @send external keys'': (chai, {..}) => chai = "keys"
   @send
   external throw: (chai, ~error: JsExn.t=?, ~matcher: RegExp.t=?, ~msg: string=?, unit) => chai =
     "throw"
