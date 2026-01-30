@@ -5,6 +5,15 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@dsiu/rescript-mocha@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@dsiu/rescript-mocha@npm:0.11.0"
+  dependencies:
+    mocha: "npm:^10.4.0"
+  checksum: 10c0/3ef653abdcc2db7c000013b509349954da8c118e7ef3d22dfdfea4fb63ea220432b7ab44323c54905a596f48aedc8bf8c2f241d567919a4556d599307744bafc
+  languageName: node
+  linkType: hard
+
 "@isaacs/balanced-match@npm:^4.0.1":
   version: 4.0.1
   resolution: "@isaacs/balanced-match@npm:4.0.1"
@@ -311,10 +320,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "bs-chai@workspace:."
   dependencies:
+    "@dsiu/rescript-mocha": "npm:^0.11.0"
     chai: "npm:^4.1.2"
     mocha: "npm:^6.2.0"
     rescript: "npm:^12.2.0-rc.1"
-    rescript-mocha: "github:dsiu/rescript-mocha#rescript-v12"
   languageName: unknown
   linkType: soft
 
@@ -2176,15 +2185,6 @@ __metadata:
   version: 2.0.0
   resolution: "require-main-filename@npm:2.0.0"
   checksum: 10c0/db91467d9ead311b4111cbd73a4e67fa7820daed2989a32f7023785a2659008c6d119752d9c4ac011ae07e537eb86523adff99804c5fdb39cd3a017f9b401bb6
-  languageName: node
-  linkType: hard
-
-"rescript-mocha@github:dsiu/rescript-mocha#rescript-v12":
-  version: 0.10.0
-  resolution: "rescript-mocha@https://github.com/dsiu/rescript-mocha.git#commit=54e89f65534a62d7697cdc754c242afeed4aeb06"
-  dependencies:
-    mocha: "npm:^10.4.0"
-  checksum: 10c0/b8d507d1a234a77ebc6700a7c1d739b571e3ea0e2eeac9f509a110fd37f49d822d75e6a6accb22b9f655738cd1c5faaa6ac6c75342758a2047746e795e3c006b
   languageName: node
   linkType: hard
 
